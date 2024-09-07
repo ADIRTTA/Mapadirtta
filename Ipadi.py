@@ -30,5 +30,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
- print(f"Coding by adirtta")
+    print(f"CODE BY ADIRTTA")
