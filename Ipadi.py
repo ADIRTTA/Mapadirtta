@@ -21,23 +21,24 @@ def print_ascii_art():
  \____|_|  \___|\__,_|\__|
 {RESET}
 """
+
     print(ascii_art)
 
 def scan_network(target):
-    # Running masscan as a subprocess and capturing the output
+    # Running zmap as a subprocess and capturing the output
     try:
         print("Scanning...")
-        # Using masscan for faster scanning
-        result = subprocess.run(['masscan', '-p1-65535', '--rate=1000', target], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        # Using zmap for scanning
+        result = subprocess.run(['zmap', '-p', '1-65535', target], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
         
-        # Print masscan's output
+        # Print zmap's output
         if result.returncode == 0:
             print(result.stdout)
         else:
             print(f"Error occurred: {result.stderr}")
 
         # Show the exit code
-        print(f"masscan exit code: {result.returncode}")
+        print(f"zmap exit code: {result.returncode}")
 
     except Exception as e:
         print(f"An error occurred: {e}")
