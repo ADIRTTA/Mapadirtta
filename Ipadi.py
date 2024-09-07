@@ -1,5 +1,6 @@
 import subprocess
 import sys
+import time
 
 def print_ascii_art():
     # ANSI escape codes for colors
@@ -21,24 +22,33 @@ def print_ascii_art():
  \____|_|  \___|\__,_|\__|
 {RESET}
 """
-
     print(ascii_art)
 
 def scan_network(target):
-    # Running zmap as a subprocess and capturing the output
+    # Running nmap as a subprocess and capturing the output
     try:
         print("Scanning...")
-        # Using zmap for scanning
-        result = subprocess.run(['zmap', '-p', '1-65535', target], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        # Start time for performance measurement
+        start_time = time.time()
         
-        # Print zmap's output
+        # Using nmap for a fast scan
+        # -T4: Set timing template to speed up scanning
+        # -p1-65535: Scan all ports
+        result = subprocess.run(['nmap', '-T4', '-p1-65535', target], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        
+        # End time for performance measurement
+        end_time = time.time()
+        elapsed_time = end_time - start_time
+        
+        # Print nmap's output
         if result.returncode == 0:
             print(result.stdout)
         else:
             print(f"Error occurred: {result.stderr}")
 
-        # Show the exit code
-        print(f"zmap exit code: {result.returncode}")
+        # Show the exit code and performance
+        print(f"nmap exit code: {result.returncode}")
+        print(f"Scan completed in {elapsed_time:.2f} seconds.")
 
     except Exception as e:
         print(f"An error occurred: {e}")
