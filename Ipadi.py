@@ -10,6 +10,9 @@ def print_ascii_art():
     ascii_art = f"""
 {GREEN} 
 
+
+
+
     _    ____ ___ ____ _____ _____  _
    / \  |  _ \_ _|  _ \_   _|_   _|/ \
   / _ \ | | | | || |_) || |   | | / _ \
@@ -17,6 +20,9 @@ def print_ascii_art():
 /_/   \_\____/___|_| \_\|_|   |_/_/   \_\
 
                                      code by adirtta
+
+
+
 
 {RESET}
 """
