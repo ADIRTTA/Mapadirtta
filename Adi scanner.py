@@ -11,10 +11,10 @@ def print_ascii_art():
 {GREEN}
 
              ___    ____  ________  _______________
-            /   |  / __ \/  _/ __ \/_  __/_  __/   |
-           / /| | / / / // // /_/ / / /   / / / /| |       code by adirtta 😎
-          / ___ |/ /_/ // // _, _/ / /   / / / ___ |      THANK YOU FOR USE MY TOOL❤
-         /_/  |_/_____/___/_/ |_| /_/   /_/ /_/  |_|       don't copy my too🤗
+            /   |  / __ \/  _/ __ \/_  __/_  __/   |       code by adirtta 😎
+           / /| | / / / // // /_/ / / /   / / / /| |       THANK YOU FOR USE MY TOOL❤
+          / ___ |/ /_/ // // _, _/ / /   / / / ___ |       don't copy my tool 🤗
+         /_/  |_/_____/___/_/ |_| /_/   /_/ /_/  |_|     my github id: (github.com/ADIRTTA)
 
 {RESET}
 """
