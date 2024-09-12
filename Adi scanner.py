@@ -30,7 +30,7 @@ def scan_network(target):
         # Using nmap for a fast scan
         # -T4: Set timing template to speed up scanning
         # -p1-65535: Scan all ports
-        result = subprocess.run(['nmap', '-T4', '-p1-65535', target], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        result = subprocess.run(['nmap', '-T5', '-p1-65535', target], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
         # End time for performance measurement
         end_time = time.time()
