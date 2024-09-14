@@ -21,44 +21,44 @@ def print_ascii_art():
     print(ascii_art)
 
 def scan_network(target):
+    # ANSI escape codes for colors
+    GREEN = '\033[92m'
+    RED = '\033[91m'
+    RESET = '\033[0m'
+
     # Running nmap as a subprocess and capturing the output
     try:
-        print("Scanning...")
+        print(f"{GREEN}Scanning...{RESET}")
         # Start time for performance measurement
         start_time = time.time()
 
-        # Using nmap for a fast scan
-        # -T4: Set timing template to speed up scanning
-        # -p1-65535: Scan all ports
-        result = subprocess.run(['nmap', '-T5', '-p1-65535', target], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
+        # Using nmap with optimizations
+        # -T4: Timing template to speed up scanning
+        # -p1-1000: Scan the most common 1000 ports
+        result = subprocess.run(['nmap', '-T4', '-p1-1000', target], stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
 
         # End time for performance measurement
         end_time = time.time()
         elapsed_time = end_time - start_time
 
-        # Print nmap's output
+        # Print nmap's output with color
         if result.returncode == 0:
-            print(result.stdout)
+            print(f"{GREEN}{result.stdout}{RESET}")
         else:
-            print(f"Error occurred: {result.stderr}")
+            print(f"{RED}Error occurred: {result.stderr}{RESET}")
 
         # Show the exit code and performance
-        print(f"nmap exit code: {result.returncode}")
-        print(f"Scan completed in {elapsed_time:.2f} seconds.")
+        print(f"{GREEN}nmap exit code: {result.returncode}{RESET}")
+        print(f"{GREEN}Scan completed in {elapsed_time:.2f} seconds.{RESET}")
 
     except Exception as e:
-        print(f"An error occurred: {e}")
+        print(f"{RED}An error occurred: {e}{RESET}")
 
 def main():
     print_ascii_art()
 
-    # Check if user provided target as a command-line argument
-    if len(sys.argv) != 2:
-        print("Usage: python network_scan.py <target>")
-        sys.exit(1)
-
-    # Get the target from the command-line argument
-    target = sys.argv[1]
+    # Prompt the user for the target IP address
+    target = input("Enter the IP address or hostname to scan: ").strip()
 
     # Perform network scan
     scan_network(target)
