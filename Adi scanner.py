@@ -1,6 +1,10 @@
 import subprocess
 import sys
 import time
+import os
+
+def clear():
+    os.system('clear')
 
 def print_ascii_art():
     # ANSI escape codes for colors
@@ -55,6 +59,7 @@ def scan_network(target):
         print(f"{RED}An error occurred: {e}{RESET}")
 
 def main():
+    clear()  # Clear the terminal before printing anything
     print_ascii_art()
 
     # Prompt the user for the target IP address
