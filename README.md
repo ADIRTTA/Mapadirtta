@@ -1,12 +1,12 @@
 my tool 
 
-pkg update,
+pkg update
 
 
-pkg upgrade,
+pkg upgrade
 
 
-pkg install nmap,
+pkg install nmap
 
 pkg install python-nmap
 
