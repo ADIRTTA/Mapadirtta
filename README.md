@@ -1,5 +1,6 @@
-my tool 
+# my tool 
 
+# Command 
 pkg update
 
 
